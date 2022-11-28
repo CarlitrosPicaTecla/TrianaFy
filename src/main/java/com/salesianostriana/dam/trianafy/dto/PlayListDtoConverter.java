@@ -14,11 +14,11 @@ public class PlayListDtoConverter {
 
     public Playlist createPlayListDtoToPlayList(CreatePlayListDto c){
 
-        List<Song>  victorLaChupa = new ArrayList<>();
+        List<Song>  songs = new ArrayList<>();
         return  Playlist.builder()
                 .name(c.getName())
                 .description(c.getDescription())
-                .songs(victorLaChupa)
+                .songs(songs)
                 .build();
 
 
@@ -37,6 +37,7 @@ public class PlayListDtoConverter {
     public GetSongDto songToSongResponse(Song song) {
         return GetSongDto
                 .builder()
+                .id(song.getId())
                 .title(song.getTitle())
                 .artist(song.getArtist().getName())
                 .album(song.getAlbum())
